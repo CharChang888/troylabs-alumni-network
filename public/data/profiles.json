@@ -1,0 +1,711 @@
+{
+  "users": [
+    {
+      "id": "e1885a3d-0877-4124-b4b1-ca4251baceb8",
+      "email": "president@usc.edu",
+      "role": "admin",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "e705e496-20bc-4d80-88c1-7dd59a3f59d7",
+      "email": "copresident@usc.edu",
+      "role": "admin",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "9e7ef6f6-3a61-4483-9041-ef8e1542ad44",
+      "email": "jordan.kim@usc.edu",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "32896b0e-7266-4cfe-bcab-ac9d76b3edc0",
+      "email": "maya.patel@usc.edu",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "2678f929-7056-4f0c-ac39-08e6e188ce7b",
+      "email": "sam.chen@usc.edu",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "62f234d7-fbb0-4c23-ab03-021542ca9840",
+      "email": "elena.vasquez@usc.edu",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "374f688b-0ca7-4d9d-a0f3-182d1f5816d6",
+      "email": "david.okonkwo@usc.edu",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "34650fc7-7f6c-4ac9-afc8-24c4f0083a3f",
+      "email": "priya.sharma@usc.edu",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "323b4c6e-0994-4467-bec4-4dda802759f7",
+      "email": "liam.o_brien@gmail.com",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "77d81d4e-6b46-4021-bf3b-1961fa94e72c",
+      "email": "sophia.nguyen@usc.edu",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "af10a215-3afd-491e-80e7-cd63aa466aa0",
+      "email": "marcus.johnson@usc.edu",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "f5d698d5-674e-4d02-a505-ad771e8eedaa",
+      "email": "aisha.rahman@usc.edu",
+      "role": "member",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    },
+    {
+      "id": "8ff9412d-9f52-4776-96fa-c5bb5fd4cd23",
+      "email": "investor@angelfund.com",
+      "role": "stakeholder",
+      "created_at": "2026-09-06T20:39:10.218Z",
+      "is_active": true
+    }
+  ],
+  "profiles": [
+    {
+      "id": "886ee0e8-203e-433f-aa05-b778162fa276",
+      "user_id": "e1885a3d-0877-4124-b4b1-ca4251baceb8",
+      "email": "president@usc.edu",
+      "full_name": "Charlotte Chang",
+      "phone": "+13105550101",
+      "cohort_year": 2025,
+      "programs": [
+        "TL_INTERNAL",
+        "BUILD"
+      ],
+      "divisions": [
+        "Product Management",
+        "Tech"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "Bridgit",
+        "TL Labs"
+      ],
+      "current_title": "Co-President",
+      "current_company": "TL Startup Accelerator",
+      "linkedin_url": null,
+      "industries": [
+        "Fintech",
+        "AI"
+      ],
+      "bio": "Building the TL alumni network and supporting BUILD founders.",
+      "city": "Los Angeles",
+      "region": "CA",
+      "country": "USA",
+      "lat": 34.0522,
+      "lng": -118.2437,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": true,
+      "notification_industries": [
+        "Fintech",
+        "AI"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "8eb6911e-042e-42b2-ab5d-e268cc0b0652",
+      "user_id": "e705e496-20bc-4d80-88c1-7dd59a3f59d7",
+      "email": "copresident@usc.edu",
+      "full_name": "Alex Rivera",
+      "phone": "+14155550102",
+      "cohort_year": 2025,
+      "programs": [
+        "TL_INTERNAL",
+        "IGNITE"
+      ],
+      "divisions": [
+        "VC/Finance",
+        "Marketing"
+      ],
+      "eboard_roles": [],
+      "startups": [],
+      "current_title": "Co-President",
+      "current_company": "TL Startup Accelerator",
+      "linkedin_url": null,
+      "industries": [
+        "Consumer",
+        "Healthtech"
+      ],
+      "bio": "Connecting IGNITE and BUILD alumni across industries.",
+      "city": "San Francisco",
+      "region": "CA",
+      "country": "USA",
+      "lat": 37.7749,
+      "lng": -122.4194,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": true,
+      "notification_industries": [
+        "Consumer",
+        "Healthtech"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "3b83538f-1c1c-4b04-a344-60c7fe248763",
+      "user_id": "9e7ef6f6-3a61-4483-9041-ef8e1542ad44",
+      "email": "jordan.kim@usc.edu",
+      "full_name": "Jordan Kim",
+      "phone": "+12065550103",
+      "cohort_year": 2024,
+      "programs": [
+        "BUILD"
+      ],
+      "divisions": [
+        "Tech"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "DataPulse",
+        "NeuralEdge"
+      ],
+      "current_title": "Software Engineer",
+      "current_company": "Stripe",
+      "linkedin_url": null,
+      "industries": [
+        "Fintech",
+        "Developer Tools"
+      ],
+      "bio": "Full-stack engineer interested in payments infra.",
+      "city": "Seattle",
+      "region": "WA",
+      "country": "USA",
+      "lat": 47.6062,
+      "lng": -122.3321,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": true,
+      "notification_industries": [
+        "Fintech",
+        "Developer Tools"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "fa983f15-6f85-4b41-a1f6-b9d6eb3b67c5",
+      "user_id": "32896b0e-7266-4cfe-bcab-ac9d76b3edc0",
+      "email": "maya.patel@usc.edu",
+      "full_name": "Maya Patel",
+      "phone": "+12125550104",
+      "cohort_year": 2024,
+      "programs": [
+        "BUILD",
+        "DEMO"
+      ],
+      "divisions": [
+        "Design"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "CanvasFlow"
+      ],
+      "current_title": "Product Designer",
+      "current_company": "Figma",
+      "linkedin_url": null,
+      "industries": [
+        "Design",
+        "SaaS"
+      ],
+      "bio": "Design systems and alumni mentorship.",
+      "city": "New York",
+      "region": "NY",
+      "country": "USA",
+      "lat": 40.7128,
+      "lng": -74.006,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": false,
+      "notification_industries": [
+        "Design",
+        "SaaS"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "20a98a57-eb3b-4421-a1d7-a30f64a89c44",
+      "user_id": "2678f929-7056-4f0c-ac39-08e6e188ce7b",
+      "email": "sam.chen@usc.edu",
+      "full_name": "Sam Chen",
+      "phone": "+15125550105",
+      "cohort_year": 2023,
+      "programs": [
+        "IGNITE"
+      ],
+      "divisions": [
+        "Tech"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "GreenRoute"
+      ],
+      "current_title": "Founding Engineer",
+      "current_company": "ClimateAI",
+      "linkedin_url": null,
+      "industries": [
+        "Climate Tech",
+        "AI"
+      ],
+      "bio": "Building ML for carbon accounting.",
+      "city": "Austin",
+      "region": "TX",
+      "country": "USA",
+      "lat": 30.2672,
+      "lng": -97.7431,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": true,
+      "notification_industries": [
+        "Climate Tech",
+        "AI"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "c6cab2b5-5f60-440f-b725-9de71d8ccb5a",
+      "user_id": "62f234d7-fbb0-4c23-ab03-021542ca9840",
+      "email": "elena.vasquez@usc.edu",
+      "full_name": "Elena Vasquez",
+      "phone": "+13125550106",
+      "cohort_year": 2023,
+      "programs": [
+        "BUILD"
+      ],
+      "divisions": [
+        "Product Management"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "HealthBridge"
+      ],
+      "current_title": "Senior PM",
+      "current_company": "Oscar Health",
+      "linkedin_url": null,
+      "industries": [
+        "Healthtech",
+        "Insurance"
+      ],
+      "bio": "PM focused on member experience.",
+      "city": "Chicago",
+      "region": "IL",
+      "country": "USA",
+      "lat": 41.8781,
+      "lng": -87.6298,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": true,
+      "notification_industries": [
+        "Healthtech",
+        "Insurance"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "d64cbc7a-a9db-4a27-9a6a-ff13dee94994",
+      "user_id": "374f688b-0ca7-4d9d-a0f3-182d1f5816d6",
+      "email": "david.okonkwo@usc.edu",
+      "full_name": "David Okonkwo",
+      "phone": "+16175550107",
+      "cohort_year": 2024,
+      "programs": [
+        "DEMO"
+      ],
+      "divisions": [
+        "Marketing"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "DemoDay Co"
+      ],
+      "current_title": "Head of Growth",
+      "current_company": "Notion",
+      "linkedin_url": null,
+      "industries": [
+        "Productivity",
+        "Marketing"
+      ],
+      "bio": "Growth and community for productivity tools.",
+      "city": "Boston",
+      "region": "MA",
+      "country": "USA",
+      "lat": 42.3601,
+      "lng": -71.0589,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": false,
+      "notification_industries": [
+        "Productivity",
+        "Marketing"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "a5b2cb3d-d72e-4a0f-8b27-205867ea682a",
+      "user_id": "34650fc7-7f6c-4ac9-afc8-24c4f0083a3f",
+      "email": "priya.sharma@usc.edu",
+      "full_name": "Priya Sharma",
+      "phone": "+16505550108",
+      "cohort_year": 2022,
+      "programs": [
+        "IGNITE",
+        "BUILD"
+      ],
+      "divisions": [
+        "VC/Finance"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "FundFlow"
+      ],
+      "current_title": "Associate",
+      "current_company": "Andreessen Horowitz",
+      "linkedin_url": null,
+      "industries": [
+        "VC/Finance",
+        "Enterprise"
+      ],
+      "bio": "Sourcing early-stage enterprise SaaS.",
+      "city": "Palo Alto",
+      "region": "CA",
+      "country": "USA",
+      "lat": 37.4419,
+      "lng": -122.143,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": true,
+      "notification_industries": [
+        "VC/Finance",
+        "Enterprise"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "9369852c-ffc2-4dcd-912c-06fa4f81a4e5",
+      "user_id": "323b4c6e-0994-4467-bec4-4dda802759f7",
+      "email": "liam.o_brien@gmail.com",
+      "full_name": "Liam O'Brien",
+      "phone": "+13035550109",
+      "cohort_year": 2023,
+      "programs": [
+        "BUILD"
+      ],
+      "divisions": [
+        "Tech"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "SecureVault"
+      ],
+      "current_title": "Security Engineer",
+      "current_company": "Cloudflare",
+      "linkedin_url": null,
+      "industries": [
+        "Cybersecurity",
+        "Infrastructure"
+      ],
+      "bio": "Infra and security for alumni platform.",
+      "city": "Denver",
+      "region": "CO",
+      "country": "USA",
+      "lat": 39.7392,
+      "lng": -104.9903,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": true,
+      "notification_industries": [
+        "Cybersecurity",
+        "Infrastructure"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "7fcacee6-7426-478d-891e-c2b1047cf554",
+      "user_id": "77d81d4e-6b46-4021-bf3b-1961fa94e72c",
+      "email": "sophia.nguyen@usc.edu",
+      "full_name": "Sophia Nguyen",
+      "phone": "+442071234567",
+      "cohort_year": 2024,
+      "programs": [
+        "IGNITE"
+      ],
+      "divisions": [
+        "Design"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "PixelCraft"
+      ],
+      "current_title": "UX Lead",
+      "current_company": "Airbnb",
+      "linkedin_url": null,
+      "industries": [
+        "Travel",
+        "Design"
+      ],
+      "bio": "Design leadership in marketplace products.",
+      "city": "London",
+      "region": null,
+      "country": "UK",
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": false,
+      "notification_industries": [
+        "Travel",
+        "Design"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "8e2c2a5b-1ac2-48b0-82e4-fa4b9c21b6bc",
+      "user_id": "af10a215-3afd-491e-80e7-cd63aa466aa0",
+      "email": "marcus.johnson@usc.edu",
+      "full_name": "Marcus Johnson",
+      "phone": "+16175550110",
+      "cohort_year": 2022,
+      "programs": [
+        "BUILD",
+        "DEMO"
+      ],
+      "divisions": [
+        "Tech",
+        "DEMO"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "RoboAssist",
+        "Demo Robotics"
+      ],
+      "current_title": "Robotics Engineer",
+      "current_company": "Boston Dynamics",
+      "linkedin_url": null,
+      "industries": [
+        "Robotics",
+        "Hardware"
+      ],
+      "bio": "Hardware-software integration.",
+      "city": "Cambridge",
+      "region": "MA",
+      "country": "USA",
+      "lat": 42.3736,
+      "lng": -71.1097,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": true,
+      "notification_industries": [
+        "Robotics",
+        "Hardware"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "d4fe50eb-006f-459a-bbd7-90a70e96f455",
+      "user_id": "f5d698d5-674e-4d02-a505-ad771e8eedaa",
+      "email": "aisha.rahman@usc.edu",
+      "full_name": "Aisha Rahman",
+      "phone": "+13105550111",
+      "cohort_year": 2025,
+      "programs": [
+        "IGNITE"
+      ],
+      "divisions": [
+        "Product Management"
+      ],
+      "eboard_roles": [],
+      "startups": [
+        "EdSpark"
+      ],
+      "current_title": "Junior PM",
+      "current_company": "Khan Academy",
+      "linkedin_url": null,
+      "industries": [
+        "Edtech",
+        "Nonprofit"
+      ],
+      "bio": "Passionate about accessible education.",
+      "city": "Los Angeles",
+      "region": "CA",
+      "country": "USA",
+      "lat": 34.0522,
+      "lng": -118.2437,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": true,
+      "notification_industries": [
+        "Edtech",
+        "Nonprofit"
+      ],
+      "stakeholder_type": null,
+      "embedding": null,
+      "profile_complete": true,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "20736cbf-80e1-453e-894c-16f3c3bfe7d1",
+      "user_id": "8ff9412d-9f52-4776-96fa-c5bb5fd4cd23",
+      "email": "investor@angelfund.com",
+      "full_name": "James Walsh",
+      "phone": "+13055550112",
+      "cohort_year": null,
+      "programs": [],
+      "divisions": [],
+      "eboard_roles": [],
+      "startups": [],
+      "current_title": "Angel Investor",
+      "current_company": "Walsh Capital",
+      "linkedin_url": null,
+      "industries": [
+        "VC/Finance",
+        "Fintech"
+      ],
+      "bio": "Early-stage fintech and consumer investor.",
+      "city": "Miami",
+      "region": "FL",
+      "country": "USA",
+      "lat": 25.7617,
+      "lng": -80.1918,
+      "photo_url": null,
+      "visibility": "public",
+      "sms_opt_in": false,
+      "notification_industries": [
+        "VC/Finance",
+        "Fintech"
+      ],
+      "stakeholder_type": "ANGEL_INVESTOR",
+      "embedding": null,
+      "profile_complete": false,
+      "location_updated_at": "2026-09-06T20:39:10.218Z",
+      "updated_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    }
+  ],
+  "allowedDomains": [
+    {
+      "id": "9ac6870c-542d-478d-8e69-6964597cc94c",
+      "domain": "usc.edu",
+      "notes": "USC primary",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "13be907f-234a-459e-b8ee-30478eb9fa92",
+      "domain": "student.usc.edu",
+      "notes": "USC student",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    },
+    {
+      "id": "4feb5672-2d42-4284-9502-30dd5ec8c209",
+      "domain": "gmail.com",
+      "notes": "Approved personal",
+      "created_at": "2026-09-06T20:39:10.218Z"
+    }
+  ],
+  "campaigns": [],
+  "deliveries": [],
+  "analyticsEvents": [],
+  "generatedAt": "2026-09-06T20:39:10.218Z",
+  "embeddingTexts": {
+    "886ee0e8-203e-433f-aa05-b778162fa276": "Charlotte Chang. works as Co-President. at TL Startup Accelerator. Programs: TL_INTERNAL, BUILD. Divisions: Product Management, Tech. Startups: Bridgit, TL Labs. Industries: Fintech, AI. Building the TL alumni network and supporting BUILD founders.",
+    "8eb6911e-042e-42b2-ab5d-e268cc0b0652": "Alex Rivera. works as Co-President. at TL Startup Accelerator. Programs: TL_INTERNAL, IGNITE. Divisions: VC/Finance, Marketing. Industries: Consumer, Healthtech. Connecting IGNITE and BUILD alumni across industries.",
+    "3b83538f-1c1c-4b04-a344-60c7fe248763": "Jordan Kim. works as Software Engineer. at Stripe. Programs: BUILD. Divisions: Tech. Startups: DataPulse, NeuralEdge. Industries: Fintech, Developer Tools. Full-stack engineer interested in payments infra.",
+    "fa983f15-6f85-4b41-a1f6-b9d6eb3b67c5": "Maya Patel. works as Product Designer. at Figma. Programs: BUILD, DEMO. Divisions: Design. Startups: CanvasFlow. Industries: Design, SaaS. Design systems and alumni mentorship.",
+    "20a98a57-eb3b-4421-a1d7-a30f64a89c44": "Sam Chen. works as Founding Engineer. at ClimateAI. Programs: IGNITE. Divisions: Tech. Startups: GreenRoute. Industries: Climate Tech, AI. Building ML for carbon accounting.",
+    "c6cab2b5-5f60-440f-b725-9de71d8ccb5a": "Elena Vasquez. works as Senior PM. at Oscar Health. Programs: BUILD. Divisions: Product Management. Startups: HealthBridge. Industries: Healthtech, Insurance. PM focused on member experience.",
+    "d64cbc7a-a9db-4a27-9a6a-ff13dee94994": "David Okonkwo. works as Head of Growth. at Notion. Programs: DEMO. Divisions: Marketing. Startups: DemoDay Co. Industries: Productivity, Marketing. Growth and community for productivity tools.",
+    "a5b2cb3d-d72e-4a0f-8b27-205867ea682a": "Priya Sharma. works as Associate. at Andreessen Horowitz. Programs: IGNITE, BUILD. Divisions: VC/Finance. Startups: FundFlow. Industries: VC/Finance, Enterprise. Sourcing early-stage enterprise SaaS.",
+    "9369852c-ffc2-4dcd-912c-06fa4f81a4e5": "Liam O'Brien. works as Security Engineer. at Cloudflare. Programs: BUILD. Divisions: Tech. Startups: SecureVault. Industries: Cybersecurity, Infrastructure. Infra and security for alumni platform.",
+    "7fcacee6-7426-478d-891e-c2b1047cf554": "Sophia Nguyen. works as UX Lead. at Airbnb. Programs: IGNITE. Divisions: Design. Startups: PixelCraft. Industries: Travel, Design. Design leadership in marketplace products.",
+    "8e2c2a5b-1ac2-48b0-82e4-fa4b9c21b6bc": "Marcus Johnson. works as Robotics Engineer. at Boston Dynamics. Programs: BUILD, DEMO. Divisions: Tech, DEMO. Startups: RoboAssist, Demo Robotics. Industries: Robotics, Hardware. Hardware-software integration.",
+    "d4fe50eb-006f-459a-bbd7-90a70e96f455": "Aisha Rahman. works as Junior PM. at Khan Academy. Programs: IGNITE. Divisions: Product Management. Startups: EdSpark. Industries: Edtech, Nonprofit. Passionate about accessible education.",
+    "20736cbf-80e1-453e-894c-16f3c3bfe7d1": "James Walsh. works as Angel Investor. at Walsh Capital. Industries: VC/Finance, Fintech. Early-stage fintech and consumer investor."
+  }
+}

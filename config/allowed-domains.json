@@ -1,0 +1,17 @@
+{
+  "description": "Email domains approved for self-serve signup. Admins can add personal domains for verified alumni.",
+  "default_domains": [
+    "usc.edu",
+    "student.usc.edu"
+  ],
+  "additional_domains": [
+    "gmail.com",
+    "outlook.com",
+    "icloud.com"
+  ],
+  "admin_emails": [
+    "president@usc.edu",
+    "copresident@usc.edu"
+  ],
+  "notes": "Replace additional_domains with alumni personal emails approved by co-president. Domains in additional_domains require manual verification in production."
+}

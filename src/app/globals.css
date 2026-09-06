@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --tl-accent: #fe0101;
+  --tl-accent-light: #ffc700;
+  --tl-gold: #ffc700;
+  --tl-gold-secondary: #ffbf00;
+  --tl-blue: #bcd4ff;
+  --tl-dark: #000000;
+}
+
+html,
+body {
+  color: var(--foreground);
+  background: #000000;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .tracking-nav {
+    letter-spacing: 0.22em;
+  }
+}
+
+.embed-mode {
+  --background: var(--embed-bg, #000000);
+  --tl-accent: var(--embed-accent, #fe0101);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
