@@ -1,10 +1,11 @@
+import fs from "fs";
+import path from "path";
 import type {
   Profile,
   User,
   MessageCampaign,
   MessageDelivery,
   AllowedDomain,
-  AudienceFilters,
   AnalyticsSnapshot,
   GlobePin,
   AlumniInvite,
@@ -30,17 +31,14 @@ const globalForStore = globalThis as unknown as { __tlAlumniStore?: SeedData | n
 let sessionUserId: string | null = null;
 
 function seedFilePath() {
-  const path = require("path") as typeof import("path");
   return path.join(process.cwd(), "public/data/profiles.json");
 }
 
 function localFilePath() {
-  const path = require("path") as typeof import("path");
   return path.join(process.cwd(), "data/profiles.local.json");
 }
 
 function storeFilePath() {
-  const fs = require("fs") as typeof import("fs");
   const local = localFilePath();
   return fs.existsSync(local) ? local : seedFilePath();
 }
@@ -216,13 +214,11 @@ export async function updateProfile(userId: string, updates: Partial<Profile>): 
   );
   if (idx === -1) return null;
 
-  const {
-    embedding: _embedding,
-    id: _id,
-    user_id: _userId,
-    created_at: _createdAt,
-    ...safeUpdates
-  } = updates;
+  const safeUpdates = { ...updates };
+  delete safeUpdates.embedding;
+  delete safeUpdates.id;
+  delete safeUpdates.user_id;
+  delete safeUpdates.created_at;
 
   const now = new Date().toISOString();
   const updated: Profile = {

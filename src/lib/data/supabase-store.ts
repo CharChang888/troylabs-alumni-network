@@ -200,12 +200,14 @@ export async function sendMagicLink(
 }
 
 export async function loginWithEmail(
-  _email: string
+  email: string
 ): Promise<{ user: User; profile: Profile } | { error: string }> {
+  void email;
   return { error: "Magic link required" };
 }
 
-export async function resolveSessionUser(_token?: string | null): Promise<User | null> {
+export async function resolveSessionUser(token?: string | null): Promise<User | null> {
+  void token;
   const supabase = await createClient();
   const {
     data: { user },
@@ -224,7 +226,8 @@ export async function getSessionUser(): Promise<User | null> {
   return resolveSessionUser(null);
 }
 
-export function setSessionUserId(_id: string | null) {
+export function setSessionUserId(id: string | null) {
+  void id;
   /* Supabase session is cookie-based. */
 }
 
@@ -273,14 +276,12 @@ export async function updateProfile(userId: string, updates: Partial<Profile>): 
   const existing = await getProfileByUserId(userId);
   if (!existing) return null;
 
-  const {
-    embedding: _embedding,
-    id: _id,
-    user_id: _userId,
-    created_at: _createdAt,
-    email: _email,
-    ...safeUpdates
-  } = updates;
+  const safeUpdates = { ...updates };
+  delete safeUpdates.embedding;
+  delete safeUpdates.id;
+  delete safeUpdates.user_id;
+  delete safeUpdates.created_at;
+  delete safeUpdates.email;
 
   const now = new Date().toISOString();
   const next: Profile = {
