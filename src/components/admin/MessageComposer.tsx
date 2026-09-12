@@ -114,7 +114,7 @@ export function MessageComposer({ onSend }: MessageComposerProps) {
                   type="button"
                   onClick={() => toggleFilter<ProgramAffiliation>("programs", p)}
                   className={`rounded-full px-3 py-1 text-xs ${
-                    filters.programs?.includes(p) ? "bg-tl-accent text-white" : "bg-white/10 text-white/60"
+                    filters.programs?.includes(p) ? "bg-tl-accent-deep text-white" : "bg-white/10 text-white/60"
                   }`}
                 >
                   {formatProgram(p)}
@@ -131,7 +131,7 @@ export function MessageComposer({ onSend }: MessageComposerProps) {
                   type="button"
                   onClick={() => toggleFilter<Division>("divisions", d)}
                   className={`rounded-full px-3 py-1 text-xs ${
-                    filters.divisions?.includes(d) ? "bg-tl-accent text-white" : "bg-white/10 text-white/60"
+                    filters.divisions?.includes(d) ? "bg-tl-accent-deep text-white" : "bg-white/10 text-white/60"
                   }`}
                 >
                   {d}
@@ -148,7 +148,7 @@ export function MessageComposer({ onSend }: MessageComposerProps) {
                   type="button"
                   onClick={() => toggleFilter<string>("industries", ind)}
                   className={`rounded-full px-3 py-1 text-xs ${
-                    filters.industries?.includes(ind) ? "bg-tl-accent text-white" : "bg-white/10 text-white/60"
+                    filters.industries?.includes(ind) ? "bg-tl-blue text-white" : "bg-white/10 text-white/60"
                   }`}
                 >
                   {ind}

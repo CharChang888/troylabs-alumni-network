@@ -1,101 +1,101 @@
 {
   "users": [
     {
-      "id": "e1885a3d-0877-4124-b4b1-ca4251baceb8",
+      "id": "b8076b81-baa0-4646-bd93-fdb1b6f9b138",
       "email": "president@usc.edu",
       "role": "admin",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "e705e496-20bc-4d80-88c1-7dd59a3f59d7",
+      "id": "03984ccf-10ff-419e-95fc-07f751418c86",
       "email": "copresident@usc.edu",
       "role": "admin",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "9e7ef6f6-3a61-4483-9041-ef8e1542ad44",
+      "id": "7b58201a-c6a5-4004-bfd9-4962bfdaafce",
       "email": "jordan.kim@usc.edu",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "32896b0e-7266-4cfe-bcab-ac9d76b3edc0",
+      "id": "b781fbbf-be45-4f2c-9e4c-362e1ebad513",
       "email": "maya.patel@usc.edu",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "2678f929-7056-4f0c-ac39-08e6e188ce7b",
+      "id": "d502de54-ec0e-4991-a554-e43bb2e830fa",
       "email": "sam.chen@usc.edu",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "62f234d7-fbb0-4c23-ab03-021542ca9840",
+      "id": "476b0324-5d9c-4a90-927f-6f9ecd93da3f",
       "email": "elena.vasquez@usc.edu",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "374f688b-0ca7-4d9d-a0f3-182d1f5816d6",
+      "id": "25451fbc-d8e1-4fe1-9e79-0f90b5f83d88",
       "email": "david.okonkwo@usc.edu",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "34650fc7-7f6c-4ac9-afc8-24c4f0083a3f",
+      "id": "b653ff06-934a-4299-85e7-85b2cfc6b3f8",
       "email": "priya.sharma@usc.edu",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "323b4c6e-0994-4467-bec4-4dda802759f7",
+      "id": "91d4d530-6f4f-4cab-9359-3fb4bdcf003d",
       "email": "liam.o_brien@gmail.com",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "77d81d4e-6b46-4021-bf3b-1961fa94e72c",
+      "id": "9cd9cc1d-a973-484b-9ae7-06f1b0f87ed3",
       "email": "sophia.nguyen@usc.edu",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "af10a215-3afd-491e-80e7-cd63aa466aa0",
+      "id": "d018eef5-d625-4303-bfc1-6d9ada81359a",
       "email": "marcus.johnson@usc.edu",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "f5d698d5-674e-4d02-a505-ad771e8eedaa",
+      "id": "740f714b-db49-4687-933b-d4e08571b42e",
       "email": "aisha.rahman@usc.edu",
       "role": "member",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     },
     {
-      "id": "8ff9412d-9f52-4776-96fa-c5bb5fd4cd23",
+      "id": "4217e85b-75d7-4d26-8b7f-53ef0c41749a",
       "email": "investor@angelfund.com",
       "role": "stakeholder",
-      "created_at": "2026-09-06T20:39:10.218Z",
+      "created_at": "2026-09-06T21:37:36.891Z",
       "is_active": true
     }
   ],
   "profiles": [
     {
-      "id": "886ee0e8-203e-433f-aa05-b778162fa276",
-      "user_id": "e1885a3d-0877-4124-b4b1-ca4251baceb8",
+      "id": "ffec0fb6-9759-4aa0-ad7a-6155d144cd20",
+      "user_id": "b8076b81-baa0-4646-bd93-fdb1b6f9b138",
       "email": "president@usc.edu",
       "full_name": "Charlotte Chang",
       "phone": "+13105550101",
@@ -136,13 +136,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "8eb6911e-042e-42b2-ab5d-e268cc0b0652",
-      "user_id": "e705e496-20bc-4d80-88c1-7dd59a3f59d7",
+      "id": "119fe873-277f-430e-b6b8-e06114eb7abc",
+      "user_id": "03984ccf-10ff-419e-95fc-07f751418c86",
       "email": "copresident@usc.edu",
       "full_name": "Alex Rivera",
       "phone": "+14155550102",
@@ -180,13 +180,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "3b83538f-1c1c-4b04-a344-60c7fe248763",
-      "user_id": "9e7ef6f6-3a61-4483-9041-ef8e1542ad44",
+      "id": "3f5aca12-4ae3-41fc-8d48-763015c2cea1",
+      "user_id": "7b58201a-c6a5-4004-bfd9-4962bfdaafce",
       "email": "jordan.kim@usc.edu",
       "full_name": "Jordan Kim",
       "phone": "+12065550103",
@@ -225,13 +225,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "fa983f15-6f85-4b41-a1f6-b9d6eb3b67c5",
-      "user_id": "32896b0e-7266-4cfe-bcab-ac9d76b3edc0",
+      "id": "34b22b40-5009-4f57-b92d-4abe21c1ef0c",
+      "user_id": "b781fbbf-be45-4f2c-9e4c-362e1ebad513",
       "email": "maya.patel@usc.edu",
       "full_name": "Maya Patel",
       "phone": "+12125550104",
@@ -270,13 +270,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "20a98a57-eb3b-4421-a1d7-a30f64a89c44",
-      "user_id": "2678f929-7056-4f0c-ac39-08e6e188ce7b",
+      "id": "d9937cda-8272-472d-8a1f-27b36649e43e",
+      "user_id": "d502de54-ec0e-4991-a554-e43bb2e830fa",
       "email": "sam.chen@usc.edu",
       "full_name": "Sam Chen",
       "phone": "+15125550105",
@@ -314,13 +314,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "c6cab2b5-5f60-440f-b725-9de71d8ccb5a",
-      "user_id": "62f234d7-fbb0-4c23-ab03-021542ca9840",
+      "id": "a764cd5c-46ab-42e0-b0c9-d5f7de14a22d",
+      "user_id": "476b0324-5d9c-4a90-927f-6f9ecd93da3f",
       "email": "elena.vasquez@usc.edu",
       "full_name": "Elena Vasquez",
       "phone": "+13125550106",
@@ -358,13 +358,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "d64cbc7a-a9db-4a27-9a6a-ff13dee94994",
-      "user_id": "374f688b-0ca7-4d9d-a0f3-182d1f5816d6",
+      "id": "f817bfd5-8c75-4493-829f-c2353699ae97",
+      "user_id": "25451fbc-d8e1-4fe1-9e79-0f90b5f83d88",
       "email": "david.okonkwo@usc.edu",
       "full_name": "David Okonkwo",
       "phone": "+16175550107",
@@ -402,13 +402,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "a5b2cb3d-d72e-4a0f-8b27-205867ea682a",
-      "user_id": "34650fc7-7f6c-4ac9-afc8-24c4f0083a3f",
+      "id": "e8967f74-8acd-412c-8797-29c952df9cdf",
+      "user_id": "b653ff06-934a-4299-85e7-85b2cfc6b3f8",
       "email": "priya.sharma@usc.edu",
       "full_name": "Priya Sharma",
       "phone": "+16505550108",
@@ -447,13 +447,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "9369852c-ffc2-4dcd-912c-06fa4f81a4e5",
-      "user_id": "323b4c6e-0994-4467-bec4-4dda802759f7",
+      "id": "ad3c87d5-2496-4ee0-b998-092811ced9bb",
+      "user_id": "91d4d530-6f4f-4cab-9359-3fb4bdcf003d",
       "email": "liam.o_brien@gmail.com",
       "full_name": "Liam O'Brien",
       "phone": "+13035550109",
@@ -491,13 +491,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "7fcacee6-7426-478d-891e-c2b1047cf554",
-      "user_id": "77d81d4e-6b46-4021-bf3b-1961fa94e72c",
+      "id": "f1a8ff07-1d7d-4f1f-bcbe-ac2ea1ee62ad",
+      "user_id": "9cd9cc1d-a973-484b-9ae7-06f1b0f87ed3",
       "email": "sophia.nguyen@usc.edu",
       "full_name": "Sophia Nguyen",
       "phone": "+442071234567",
@@ -535,13 +535,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "8e2c2a5b-1ac2-48b0-82e4-fa4b9c21b6bc",
-      "user_id": "af10a215-3afd-491e-80e7-cd63aa466aa0",
+      "id": "74905866-8dc0-491a-9ba5-9952ec0fe5b9",
+      "user_id": "d018eef5-d625-4303-bfc1-6d9ada81359a",
       "email": "marcus.johnson@usc.edu",
       "full_name": "Marcus Johnson",
       "phone": "+16175550110",
@@ -582,13 +582,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "d4fe50eb-006f-459a-bbd7-90a70e96f455",
-      "user_id": "f5d698d5-674e-4d02-a505-ad771e8eedaa",
+      "id": "94097311-818c-42fe-a595-0d198427a5a7",
+      "user_id": "740f714b-db49-4687-933b-d4e08571b42e",
       "email": "aisha.rahman@usc.edu",
       "full_name": "Aisha Rahman",
       "phone": "+13105550111",
@@ -626,13 +626,13 @@
       "stakeholder_type": null,
       "embedding": null,
       "profile_complete": true,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "20736cbf-80e1-453e-894c-16f3c3bfe7d1",
-      "user_id": "8ff9412d-9f52-4776-96fa-c5bb5fd4cd23",
+      "id": "63b27223-9f56-4b5e-a083-a7de1dfaa63c",
+      "user_id": "4217e85b-75d7-4d26-8b7f-53ef0c41749a",
       "email": "investor@angelfund.com",
       "full_name": "James Walsh",
       "phone": "+13055550112",
@@ -664,48 +664,48 @@
       "stakeholder_type": "ANGEL_INVESTOR",
       "embedding": null,
       "profile_complete": false,
-      "location_updated_at": "2026-09-06T20:39:10.218Z",
-      "updated_at": "2026-09-06T20:39:10.218Z",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "location_updated_at": "2026-09-06T21:37:36.891Z",
+      "updated_at": "2026-09-06T21:37:36.891Z",
+      "created_at": "2026-09-06T21:37:36.891Z"
     }
   ],
   "allowedDomains": [
     {
-      "id": "9ac6870c-542d-478d-8e69-6964597cc94c",
+      "id": "d66f2417-d563-4352-a00d-3637835b51d9",
       "domain": "usc.edu",
       "notes": "USC primary",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "13be907f-234a-459e-b8ee-30478eb9fa92",
+      "id": "e39e3be9-fa73-4c6a-8b5a-17e818b8d857",
       "domain": "student.usc.edu",
       "notes": "USC student",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "created_at": "2026-09-06T21:37:36.891Z"
     },
     {
-      "id": "4feb5672-2d42-4284-9502-30dd5ec8c209",
+      "id": "e68c9acb-cc15-4aaa-95a8-c2da6d10870a",
       "domain": "gmail.com",
       "notes": "Approved personal",
-      "created_at": "2026-09-06T20:39:10.218Z"
+      "created_at": "2026-09-06T21:37:36.891Z"
     }
   ],
   "campaigns": [],
   "deliveries": [],
   "analyticsEvents": [],
-  "generatedAt": "2026-09-06T20:39:10.218Z",
+  "generatedAt": "2026-09-06T21:37:36.891Z",
   "embeddingTexts": {
-    "886ee0e8-203e-433f-aa05-b778162fa276": "Charlotte Chang. works as Co-President. at TL Startup Accelerator. Programs: TL_INTERNAL, BUILD. Divisions: Product Management, Tech. Startups: Bridgit, TL Labs. Industries: Fintech, AI. Building the TL alumni network and supporting BUILD founders.",
-    "8eb6911e-042e-42b2-ab5d-e268cc0b0652": "Alex Rivera. works as Co-President. at TL Startup Accelerator. Programs: TL_INTERNAL, IGNITE. Divisions: VC/Finance, Marketing. Industries: Consumer, Healthtech. Connecting IGNITE and BUILD alumni across industries.",
-    "3b83538f-1c1c-4b04-a344-60c7fe248763": "Jordan Kim. works as Software Engineer. at Stripe. Programs: BUILD. Divisions: Tech. Startups: DataPulse, NeuralEdge. Industries: Fintech, Developer Tools. Full-stack engineer interested in payments infra.",
-    "fa983f15-6f85-4b41-a1f6-b9d6eb3b67c5": "Maya Patel. works as Product Designer. at Figma. Programs: BUILD, DEMO. Divisions: Design. Startups: CanvasFlow. Industries: Design, SaaS. Design systems and alumni mentorship.",
-    "20a98a57-eb3b-4421-a1d7-a30f64a89c44": "Sam Chen. works as Founding Engineer. at ClimateAI. Programs: IGNITE. Divisions: Tech. Startups: GreenRoute. Industries: Climate Tech, AI. Building ML for carbon accounting.",
-    "c6cab2b5-5f60-440f-b725-9de71d8ccb5a": "Elena Vasquez. works as Senior PM. at Oscar Health. Programs: BUILD. Divisions: Product Management. Startups: HealthBridge. Industries: Healthtech, Insurance. PM focused on member experience.",
-    "d64cbc7a-a9db-4a27-9a6a-ff13dee94994": "David Okonkwo. works as Head of Growth. at Notion. Programs: DEMO. Divisions: Marketing. Startups: DemoDay Co. Industries: Productivity, Marketing. Growth and community for productivity tools.",
-    "a5b2cb3d-d72e-4a0f-8b27-205867ea682a": "Priya Sharma. works as Associate. at Andreessen Horowitz. Programs: IGNITE, BUILD. Divisions: VC/Finance. Startups: FundFlow. Industries: VC/Finance, Enterprise. Sourcing early-stage enterprise SaaS.",
-    "9369852c-ffc2-4dcd-912c-06fa4f81a4e5": "Liam O'Brien. works as Security Engineer. at Cloudflare. Programs: BUILD. Divisions: Tech. Startups: SecureVault. Industries: Cybersecurity, Infrastructure. Infra and security for alumni platform.",
-    "7fcacee6-7426-478d-891e-c2b1047cf554": "Sophia Nguyen. works as UX Lead. at Airbnb. Programs: IGNITE. Divisions: Design. Startups: PixelCraft. Industries: Travel, Design. Design leadership in marketplace products.",
-    "8e2c2a5b-1ac2-48b0-82e4-fa4b9c21b6bc": "Marcus Johnson. works as Robotics Engineer. at Boston Dynamics. Programs: BUILD, DEMO. Divisions: Tech, DEMO. Startups: RoboAssist, Demo Robotics. Industries: Robotics, Hardware. Hardware-software integration.",
-    "d4fe50eb-006f-459a-bbd7-90a70e96f455": "Aisha Rahman. works as Junior PM. at Khan Academy. Programs: IGNITE. Divisions: Product Management. Startups: EdSpark. Industries: Edtech, Nonprofit. Passionate about accessible education.",
-    "20736cbf-80e1-453e-894c-16f3c3bfe7d1": "James Walsh. works as Angel Investor. at Walsh Capital. Industries: VC/Finance, Fintech. Early-stage fintech and consumer investor."
+    "ffec0fb6-9759-4aa0-ad7a-6155d144cd20": "Charlotte Chang. works as Co-President. at TL Startup Accelerator. Programs: TL_INTERNAL, BUILD. Divisions: Product Management, Tech. Startups: Bridgit, TL Labs. Industries: Fintech, AI. Building the TL alumni network and supporting BUILD founders.",
+    "119fe873-277f-430e-b6b8-e06114eb7abc": "Alex Rivera. works as Co-President. at TL Startup Accelerator. Programs: TL_INTERNAL, IGNITE. Divisions: VC/Finance, Marketing. Industries: Consumer, Healthtech. Connecting IGNITE and BUILD alumni across industries.",
+    "3f5aca12-4ae3-41fc-8d48-763015c2cea1": "Jordan Kim. works as Software Engineer. at Stripe. Programs: BUILD. Divisions: Tech. Startups: DataPulse, NeuralEdge. Industries: Fintech, Developer Tools. Full-stack engineer interested in payments infra.",
+    "34b22b40-5009-4f57-b92d-4abe21c1ef0c": "Maya Patel. works as Product Designer. at Figma. Programs: BUILD, DEMO. Divisions: Design. Startups: CanvasFlow. Industries: Design, SaaS. Design systems and alumni mentorship.",
+    "d9937cda-8272-472d-8a1f-27b36649e43e": "Sam Chen. works as Founding Engineer. at ClimateAI. Programs: IGNITE. Divisions: Tech. Startups: GreenRoute. Industries: Climate Tech, AI. Building ML for carbon accounting.",
+    "a764cd5c-46ab-42e0-b0c9-d5f7de14a22d": "Elena Vasquez. works as Senior PM. at Oscar Health. Programs: BUILD. Divisions: Product Management. Startups: HealthBridge. Industries: Healthtech, Insurance. PM focused on member experience.",
+    "f817bfd5-8c75-4493-829f-c2353699ae97": "David Okonkwo. works as Head of Growth. at Notion. Programs: DEMO. Divisions: Marketing. Startups: DemoDay Co. Industries: Productivity, Marketing. Growth and community for productivity tools.",
+    "e8967f74-8acd-412c-8797-29c952df9cdf": "Priya Sharma. works as Associate. at Andreessen Horowitz. Programs: IGNITE, BUILD. Divisions: VC/Finance. Startups: FundFlow. Industries: VC/Finance, Enterprise. Sourcing early-stage enterprise SaaS.",
+    "ad3c87d5-2496-4ee0-b998-092811ced9bb": "Liam O'Brien. works as Security Engineer. at Cloudflare. Programs: BUILD. Divisions: Tech. Startups: SecureVault. Industries: Cybersecurity, Infrastructure. Infra and security for alumni platform.",
+    "f1a8ff07-1d7d-4f1f-bcbe-ac2ea1ee62ad": "Sophia Nguyen. works as UX Lead. at Airbnb. Programs: IGNITE. Divisions: Design. Startups: PixelCraft. Industries: Travel, Design. Design leadership in marketplace products.",
+    "74905866-8dc0-491a-9ba5-9952ec0fe5b9": "Marcus Johnson. works as Robotics Engineer. at Boston Dynamics. Programs: BUILD, DEMO. Divisions: Tech, DEMO. Startups: RoboAssist, Demo Robotics. Industries: Robotics, Hardware. Hardware-software integration.",
+    "94097311-818c-42fe-a595-0d198427a5a7": "Aisha Rahman. works as Junior PM. at Khan Academy. Programs: IGNITE. Divisions: Product Management. Startups: EdSpark. Industries: Edtech, Nonprofit. Passionate about accessible education.",
+    "63b27223-9f56-4b5e-a083-a7de1dfaa63c": "James Walsh. works as Angel Investor. at Walsh Capital. Industries: VC/Finance, Fintech. Early-stage fintech and consumer investor."
   }
 }

@@ -35,8 +35,16 @@ class SendBlueProvider implements MessagingProvider {
   async send(params: SendMessageParams): Promise<SendMessageResult> {
     const apiKey = process.env.SENDBLUE_API_KEY;
     const apiSecret = process.env.SENDBLUE_API_SECRET;
+    const fromNumber = process.env.SENDBLUE_FROM_NUMBER;
     if (!apiKey || !apiSecret) {
       return { success: false, channel: "sms", error: "SendBlue credentials not configured" };
+    }
+    if (!fromNumber) {
+      return {
+        success: false,
+        channel: "sms",
+        error: "SENDBLUE_FROM_NUMBER is required (your SendBlue line in E.164, e.g. +15551234567)",
+      };
     }
 
     try {
@@ -47,7 +55,11 @@ class SendBlueProvider implements MessagingProvider {
           "sb-api-key-id": apiKey,
           "sb-api-secret-key": apiSecret,
         },
-        body: JSON.stringify({ number: params.to, content: params.body }),
+        body: JSON.stringify({
+          number: params.to,
+          from_number: fromNumber,
+          content: params.body,
+        }),
       });
 
       if (!res.ok) {

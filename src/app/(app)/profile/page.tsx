@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState<Profile | null>(null);
+  const [draft, setDraft] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [needsLogin, setNeedsLogin] = useState(false);
 
@@ -21,7 +22,10 @@ export default function ProfilePage() {
           return;
         }
         const data = await r.json();
-        if (!cancelled) setProfile(data.profile ?? null);
+        if (!cancelled) {
+          setProfile(data.profile ?? null);
+          setDraft(data.profile ?? null);
+        }
       })
       .catch(() => {
         if (!cancelled) setNeedsLogin(true);
@@ -41,7 +45,10 @@ export default function ProfilePage() {
       body: JSON.stringify(updates),
     });
     const data = await res.json();
-    if (data.profile) setProfile(data.profile);
+    if (data.profile) {
+      setProfile(data.profile);
+      setDraft(data.profile);
+    }
   };
 
   if (loading) return <p className="text-white/50">Loading profile...</p>;
@@ -66,7 +73,8 @@ export default function ProfilePage() {
     );
   }
 
-  const completion = profileCompletionScore(profile);
+  const active = draft ?? profile;
+  const completion = profileCompletionScore(active);
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -79,11 +87,14 @@ export default function ProfilePage() {
             <span>{completion}%</span>
           </div>
           <div className="mt-2 h-[1px] overflow-hidden bg-white/15">
-            <div className="h-full bg-gradient-to-r from-[#fe0101] to-[#ffc700] transition-all" style={{ width: `${completion}%` }} />
+            <div
+              className="h-full bg-gradient-to-r from-tl-accent to-tl-gold transition-all duration-300"
+              style={{ width: `${completion}%` }}
+            />
           </div>
         </div>
       </div>
-      <ProfileForm profile={profile} onSave={handleSave} />
+      <ProfileForm profile={profile} onSave={handleSave} onDraftChange={setDraft} />
     </div>
   );
 }

@@ -64,6 +64,14 @@ export async function addAllowedDomain(domain: string, notes?: string) {
   return store().addAllowedDomain(domain, notes);
 }
 
+export async function removeAllowedDomain(domainOrId: string) {
+  return store().removeAllowedDomain(domainOrId);
+}
+
+export async function removeUserByEmail(email: string) {
+  return store().removeUserByEmail(email);
+}
+
 export async function createCampaign(...args: Parameters<typeof demo.createCampaign>) {
   return store().createCampaign(...args);
 }

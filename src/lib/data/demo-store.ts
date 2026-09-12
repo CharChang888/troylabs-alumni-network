@@ -265,7 +265,31 @@ export async function addAllowedDomain(domain: string, notes?: string): Promise<
     created_at: new Date().toISOString(),
   };
   data.allowedDomains.push(entry);
+  await persistStore(data);
   return entry;
+}
+
+export async function removeAllowedDomain(domainOrId: string): Promise<boolean> {
+  const data = await loadStore();
+  const needle = domainOrId.toLowerCase();
+  const before = data.allowedDomains.length;
+  data.allowedDomains = data.allowedDomains.filter(
+    (d) => d.id !== domainOrId && d.domain.toLowerCase() !== needle
+  );
+  if (data.allowedDomains.length === before) return false;
+  await persistStore(data);
+  return true;
+}
+
+export async function removeUserByEmail(email: string): Promise<boolean> {
+  const data = await loadStore();
+  const lower = email.toLowerCase();
+  const user = data.users.find((u) => u.email.toLowerCase() === lower);
+  if (!user) return false;
+  data.users = data.users.filter((u) => u.id !== user.id);
+  data.profiles = data.profiles.filter((p) => p.user_id !== user.id);
+  await persistStore(data);
+  return true;
 }
 
 export async function createCampaign(

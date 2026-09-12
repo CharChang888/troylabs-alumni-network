@@ -3,20 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --background: #000000;
+  /* Warm near-black space void from brand art */
+  --background: #0b0907;
   --foreground: #ffffff;
-  --tl-accent: #fe0101;
-  --tl-accent-light: #ffc700;
-  --tl-gold: #ffc700;
-  --tl-gold-secondary: #ffbf00;
-  --tl-blue: #bcd4ff;
-  --tl-dark: #000000;
+  /* BUILD burnt orange + rocket red (slightly muted) */
+  --tl-accent: #e23a1f;
+  --tl-accent-deep: #b84528;
+  /* IGNITE mustard / desaturated gold (less neon than #ffc700) */
+  --tl-accent-light: #c9a84c;
+  --tl-gold: #c9a84c;
+  --tl-gold-secondary: #a8893a;
+  /* DEMO sky blue */
+  --tl-blue: #5a9fe8;
+  --tl-blue-soft: #8ec0f5;
+  --tl-dark: #0b0907;
+  --tl-nebula: #3a2218;
 }
 
 html,
 body {
   color: var(--foreground);
-  background: #000000;
+  background: var(--background);
   font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -28,11 +35,28 @@ body {
   .tracking-nav {
     letter-spacing: 0.22em;
   }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .glass-panel-hover {
+    transition: background-color 180ms ease, border-color 180ms ease, backdrop-filter 180ms ease;
+  }
+
+  .glass-panel-hover:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
 }
 
 .embed-mode {
-  --background: var(--embed-bg, #000000);
-  --tl-accent: var(--embed-accent, #fe0101);
+  --background: var(--embed-bg, #0b0907);
+  --tl-accent: var(--embed-accent, #e23a1f);
 }
 
 @media (prefers-reduced-motion: reduce) {

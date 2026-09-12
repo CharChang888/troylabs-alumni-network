@@ -14,7 +14,7 @@ export function Logo({
       alt="TroyLabs"
       width={size}
       height={size}
-      className={cn("object-contain mix-blend-screen", className)}
+      className={cn("object-contain", className)}
       priority
     />
   );

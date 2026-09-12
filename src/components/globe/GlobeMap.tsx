@@ -13,6 +13,37 @@ interface GlobeMapProps {
   onRefresh?: () => void;
 }
 
+function createStarMarker(pin: GlobePin, onClick: (pin: GlobePin) => void) {
+  const el = document.createElement("button");
+  el.type = "button";
+  el.title = pin.full_name;
+  el.setAttribute("aria-label", pin.full_name);
+  el.innerHTML = `
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="#e23a1f"
+        stroke="#c9a84c"
+        stroke-width="0.8"
+        d="M12 2.5l2.6 6.4 6.9.6-5.2 4.5 1.6 6.7L12 17.2l-5.9 3.5 1.6-6.7L2.5 9.5l6.9-.6L12 2.5z"
+      />
+    </svg>
+  `;
+  el.style.cssText = [
+    "background:transparent",
+    "border:0",
+    "padding:0",
+    "cursor:pointer",
+    "transform:translate(-50%,-50%)",
+    "filter:drop-shadow(0 0 4px rgba(226,58,31,0.75))",
+    "line-height:0",
+  ].join(";");
+  el.addEventListener("click", (event) => {
+    event.stopPropagation();
+    onClick(pin);
+  });
+  return el;
+}
+
 export function GlobeMap({ pins, onRefresh }: GlobeMapProps) {
   const globeRef = useRef<{
     pointOfView: (pov: { lat?: number; lng?: number; altitude?: number }, ms?: number) => void;
@@ -21,6 +52,8 @@ export function GlobeMap({ pins, onRefresh }: GlobeMapProps) {
   const [loadingPin, setLoadingPin] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const popupRef = useRef<HTMLDivElement>(null);
+  const clickHandlerRef = useRef<(pin: GlobePin) => void>(() => undefined);
 
   useEffect(() => {
     const updateSize = () => {
@@ -49,6 +82,11 @@ export function GlobeMap({ pins, onRefresh }: GlobeMapProps) {
     };
   }, [onRefresh]);
 
+  useEffect(() => {
+    if (!selected || !popupRef.current) return;
+    popupRef.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+  }, [selected, loadingPin]);
+
   const handlePinClick = useCallback(async (pin: GlobePin) => {
     setSelected(pin);
     setLoadingPin(true);
@@ -64,13 +102,15 @@ export function GlobeMap({ pins, onRefresh }: GlobeMapProps) {
     }
   }, []);
 
+  clickHandlerRef.current = handlePinClick;
+
   const title = selected && "current_title" in selected ? selected.current_title : null;
   const company = selected && "current_company" in selected ? selected.current_company : null;
   const city = selected && "city" in selected ? selected.city : null;
   const region = selected && "region" in selected ? selected.region : null;
 
   return (
-    <div ref={containerRef} className="relative h-[calc(100vh-8rem)] min-h-[400px] w-full overflow-hidden">
+    <div ref={containerRef} className="relative h-[min(70vh,calc(100vh-12rem))] min-h-[360px] w-full overflow-hidden">
       <Globe
         // @ts-expect-error react-globe.gl ref typing
         ref={globeRef}
@@ -82,20 +122,20 @@ export function GlobeMap({ pins, onRefresh }: GlobeMapProps) {
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
         backgroundColor="rgba(0,0,0,0)"
-        pointsData={pins}
-        pointLat="lat"
-        pointLng="lng"
-        pointColor={() => "#fe0101"}
-        pointAltitude={0.01}
-        pointRadius={0.4}
-        pointsMerge={false}
-        onPointClick={(point: object) => handlePinClick(point as GlobePin)}
-        atmosphereColor="#ffc700"
+        htmlElementsData={pins}
+        htmlLat="lat"
+        htmlLng="lng"
+        htmlAltitude={0.012}
+        htmlElement={(d: object) => createStarMarker(d as GlobePin, (pin) => clickHandlerRef.current(pin))}
+        atmosphereColor="#c9a84c"
         atmosphereAltitude={0.15}
       />
 
       {selected && (
-        <Card className="absolute bottom-4 left-4 z-10 max-w-xs border-white/20">
+        <Card
+          ref={popupRef}
+          className="absolute left-4 top-4 z-10 max-h-[min(50%,22rem)] max-w-xs overflow-y-auto border-white/25 bg-black/55 shadow-[0_8px_40px_rgba(0,0,0,0.45)] backdrop-blur-md"
+        >
           <CardContent className="p-4">
             <h3 className="font-semibold text-white">{selected.full_name}</h3>
             <p className="text-sm text-white/60">
@@ -113,7 +153,7 @@ export function GlobeMap({ pins, onRefresh }: GlobeMapProps) {
             )}
             <Link
               href={`/members/${selected.id}`}
-              className="mt-2 inline-block text-sm text-[#ffc700] hover:underline"
+              className="mt-2 inline-block text-sm text-tl-gold hover:underline"
             >
               View profile →
             </Link>
@@ -128,7 +168,7 @@ export function GlobeMap({ pins, onRefresh }: GlobeMapProps) {
         </Card>
       )}
 
-      <div className="absolute right-4 top-4 text-[11px] uppercase tracking-nav text-white/50">
+      <div className="absolute bottom-4 right-4 text-[11px] uppercase tracking-nav text-white/50">
         {pins.length} alumni on map
       </div>
     </div>

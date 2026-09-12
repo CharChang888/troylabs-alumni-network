@@ -13,6 +13,7 @@ import { Check, Loader2 } from "lucide-react";
 interface ProfileFormProps {
   profile: Profile;
   onSave: (updates: Partial<Profile>) => Promise<void>;
+  onDraftChange?: (draft: Profile) => void;
 }
 
 function Pill({
@@ -39,7 +40,7 @@ function Pill({
   );
 }
 
-export function ProfileForm({ profile, onSave }: ProfileFormProps) {
+export function ProfileForm({ profile, onSave, onDraftChange }: ProfileFormProps) {
   const [form, setForm] = useState<Profile>({
     ...profile,
     programs: profile.programs ?? [],
@@ -58,8 +59,16 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
     profile.city ? `${profile.city}${profile.region ? `, ${profile.region}` : ""}` : ""
   );
 
-  const toggleArray = <T extends string>(key: keyof Profile, value: T) => {
+  const updateForm = (next: Profile | ((prev: Profile) => Profile)) => {
     setForm((prev) => {
+      const value = typeof next === "function" ? next(prev) : next;
+      onDraftChange?.(value);
+      return value;
+    });
+  };
+
+  const toggleArray = <T extends string>(key: keyof Profile, value: T) => {
+    updateForm((prev) => {
       const arr = (prev[key] as T[]) ?? [];
       const next = arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
       return { ...prev, [key]: next };
@@ -71,7 +80,7 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
     const res = await fetch(`/api/geocode?q=${encodeURIComponent(locationQuery)}`);
     const data = await res.json();
     if (data.result) {
-      setForm((prev) => ({
+      updateForm((prev) => ({
         ...prev,
         city: data.result.city,
         region: data.result.region,
@@ -84,7 +93,7 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
 
   const addStartup = () => {
     if (!startupInput.trim()) return;
-    setForm((prev) => ({
+    updateForm((prev) => ({
       ...prev,
       startups: [...prev.startups, startupInput.trim()],
     }));
@@ -94,7 +103,7 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
   const addIndustry = () => {
     const value = industryInput.trim();
     if (!value) return;
-    setForm((prev) => ({
+    updateForm((prev) => ({
       ...prev,
       industries: prev.industries.includes(value) ? prev.industries : [...prev.industries, value],
     }));
@@ -120,23 +129,23 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label className="mb-1 block text-sm text-white/60">Full name</label>
-            <Input value={form.full_name} onChange={(e) => setForm({ ...form, full_name: e.target.value })} />
+            <Input value={form.full_name} onChange={(e) => updateForm({ ...form, full_name: e.target.value })} />
           </div>
           <div>
             <label className="mb-1 block text-sm text-white/60">Cohort year</label>
             <Input
               type="number"
               value={form.cohort_year ?? ""}
-              onChange={(e) => setForm({ ...form, cohort_year: e.target.value ? parseInt(e.target.value) : null })}
+              onChange={(e) => updateForm({ ...form, cohort_year: e.target.value ? parseInt(e.target.value) : null })}
             />
           </div>
           <div>
             <label className="mb-1 block text-sm text-white/60">Current title</label>
-            <Input value={form.current_title ?? ""} onChange={(e) => setForm({ ...form, current_title: e.target.value })} />
+            <Input value={form.current_title ?? ""} onChange={(e) => updateForm({ ...form, current_title: e.target.value })} />
           </div>
           <div>
             <label className="mb-1 block text-sm text-white/60">Current company</label>
-            <Input value={form.current_company ?? ""} onChange={(e) => setForm({ ...form, current_company: e.target.value })} />
+            <Input value={form.current_company ?? ""} onChange={(e) => updateForm({ ...form, current_company: e.target.value })} />
           </div>
           <div className="sm:col-span-2">
             <label className="mb-1 block text-sm text-white/60">LinkedIn profile</label>
@@ -144,13 +153,13 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
               type="url"
               placeholder="https://www.linkedin.com/in/your-profile"
               value={form.linkedin_url ?? ""}
-              onChange={(e) => setForm({ ...form, linkedin_url: e.target.value || null })}
+              onChange={(e) => updateForm({ ...form, linkedin_url: e.target.value || null })}
             />
           </div>
         </div>
         <div>
           <label className="mb-1 block text-sm text-white/60">Bio</label>
-          <Textarea value={form.bio ?? ""} onChange={(e) => setForm({ ...form, bio: e.target.value })} rows={4} />
+          <Textarea value={form.bio ?? ""} onChange={(e) => updateForm({ ...form, bio: e.target.value })} rows={4} />
         </div>
       </section>
 
@@ -200,7 +209,7 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
               <button
                 type="button"
                 className="ml-1 text-white/50 hover:text-white"
-                onClick={() => setForm({ ...form, startups: form.startups.filter((x) => x !== s) })}
+                onClick={() => updateForm({ ...form, startups: form.startups.filter((x) => x !== s) })}
               >
                 ×
               </button>
@@ -236,7 +245,7 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
                 <button
                   type="button"
                   className="ml-1 text-black/50 hover:text-black"
-                  onClick={() => setForm({ ...form, industries: form.industries.filter((x) => x !== ind) })}
+                  onClick={() => updateForm({ ...form, industries: form.industries.filter((x) => x !== ind) })}
                 >
                   ×
                 </button>
@@ -279,14 +288,14 @@ export function ProfileForm({ profile, onSave }: ProfileFormProps) {
         <h2 className="text-lg font-medium text-white">Notifications</h2>
         <div>
           <label className="mb-1 block text-sm text-white/60">Phone (E.164, e.g. +13105551234)</label>
-          <Input value={form.phone ?? ""} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+          <Input value={form.phone ?? ""} onChange={(e) => updateForm({ ...form, phone: e.target.value })} />
         </div>
         <label className="flex items-center gap-2 text-sm text-white/80">
           <input
             type="checkbox"
             checked={form.sms_opt_in}
             onChange={(e) =>
-              setForm({ ...form, sms_opt_in: e.target.checked, notification_industries: form.industries })
+              updateForm({ ...form, sms_opt_in: e.target.checked, notification_industries: form.industries })
             }
             className="rounded border-white/20 accent-[#fe0101]"
           />

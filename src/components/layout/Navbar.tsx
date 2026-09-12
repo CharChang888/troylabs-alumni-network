@@ -40,7 +40,7 @@ export function Navbar({ isAdmin }: { isAdmin?: boolean }) {
               href="/admin"
               className={cn(
                 "text-[11px] font-medium uppercase tracking-nav transition-colors",
-                pathname.startsWith("/admin") ? "text-[#ffc700]" : "text-white/45 hover:text-white"
+                pathname.startsWith("/admin") ? "text-tl-gold" : "text-white/45 hover:text-white"
               )}
             >
               Admin

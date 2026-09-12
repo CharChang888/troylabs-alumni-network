@@ -12,7 +12,7 @@ export function Badge({
       className={cn(
         "inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider",
         variant === "default" && "border-white/25 text-white/80",
-        variant === "accent" && "border-[#ffc700]/50 text-[#ffc700]",
+        variant === "accent" && "border-tl-gold/50 text-tl-gold",
         variant === "outline" && "border-white/20 text-white/80",
         className
       )}

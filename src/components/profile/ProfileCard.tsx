@@ -21,13 +21,13 @@ export function ProfileCard({
 
   return (
     <Link href={`/members/${profile.id}`} className={cn("group flex h-full w-full", className)}>
-      <div className="flex h-full w-full flex-col border border-white/20 px-5 py-5 transition-colors hover:border-white/60">
+      <div className="glass-panel glass-panel-hover flex h-full w-full flex-col border border-white/20 px-5 py-5">
         <div className="flex items-start gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 text-xs font-medium text-[#ffc700]">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 text-xs font-medium text-tl-gold">
             {initials || "?"}
           </div>
           <div className="min-w-0 flex-1">
-            <h3 className="truncate font-medium tracking-wide text-white group-hover:text-[#ffc700]">
+            <h3 className="truncate font-medium tracking-wide text-white group-hover:text-tl-gold">
               {profile.full_name || "Unnamed"}
             </h3>
             <p className="truncate text-sm text-white/55">
@@ -47,7 +47,7 @@ export function ProfileCard({
           ))}
         </div>
         {similarity != null && similarity > 0 && (
-          <p className="mt-2 text-[10px] uppercase tracking-nav text-[#bcd4ff]">
+          <p className="mt-2 text-[10px] uppercase tracking-nav text-tl-blue-soft">
             {Math.round(similarity * 100)}% match
           </p>
         )}

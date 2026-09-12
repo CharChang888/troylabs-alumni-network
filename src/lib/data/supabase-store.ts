@@ -379,6 +379,33 @@ export async function addAllowedDomain(domain: string, notes?: string): Promise<
   return mapDomain(data as Record<string, unknown>);
 }
 
+export async function removeAllowedDomain(domainOrId: string): Promise<boolean> {
+  const db = await getDb();
+  const byId = await db.from("allowed_domains").delete().eq("id", domainOrId).select("id");
+  if (byId.data?.length) return true;
+  const byDomain = await db
+    .from("allowed_domains")
+    .delete()
+    .ilike("domain", domainOrId)
+    .select("id");
+  return Boolean(byDomain.data?.length);
+}
+
+export async function removeUserByEmail(email: string): Promise<boolean> {
+  const db = await getDb();
+  const lower = email.trim().toLowerCase();
+  const { data: user, error } = await db.from("users").select("id").ilike("email", lower).maybeSingle();
+  if (error || !user) return false;
+
+  await db.from("profiles").delete().eq("user_id", user.id);
+  const { error: userError } = await db.from("users").delete().eq("id", user.id);
+  if (userError) {
+    console.error("removeUserByEmail", userError.message);
+    return false;
+  }
+  return true;
+}
+
 export async function createCampaign(
   campaign: Omit<MessageCampaign, "id" | "created_at" | "recipient_count" | "sent_at">
 ): Promise<MessageCampaign> {

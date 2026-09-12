@@ -79,7 +79,7 @@ export default function LoginPage() {
             required
             className="h-12 rounded-none border-x-0 border-t-0 border-b border-white/30 bg-transparent px-0 text-center tracking-wide"
           />
-          {error && <p className="text-center text-sm text-[#fe0101]">{error}</p>}
+          {error && <p className="text-center text-sm text-tl-accent">{error}</p>}
           <Button type="submit" className="w-full" disabled={loading} variant="secondary">
             {loading ? "Signing in..." : mode === "magic" ? "Email me a link" : "Continue"}
           </Button>

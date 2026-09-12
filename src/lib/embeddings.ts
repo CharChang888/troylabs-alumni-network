@@ -12,6 +12,10 @@ function getOpenAI(): OpenAI | null {
   return openai;
 }
 
+export function hasOpenAIEmbeddings(): boolean {
+  return Boolean(process.env.OPENAI_API_KEY);
+}
+
 export function padEmbedding(vec: number[]): number[] {
   if (vec.length === EMBEDDING_DIMENSIONS) return vec;
   const out = new Array(EMBEDDING_DIMENSIONS).fill(0);
@@ -46,9 +50,13 @@ export function toVectorLiteral(vec: number[]): string {
   return `[${padEmbedding(vec).join(",")}]`;
 }
 
+/**
+ * Real OpenAI embeddings only. Returns null when the key is missing or the API fails
+ * so search can fall back to keyword ranking instead of mixing fake vectors.
+ */
 export async function embedText(text: string): Promise<number[] | null> {
   const client = getOpenAI();
-  if (!client) return padEmbedding(pseudoEmbed(text));
+  if (!client) return null;
 
   try {
     const res = await client.embeddings.create({
@@ -56,18 +64,14 @@ export async function embedText(text: string): Promise<number[] | null> {
       input: text.slice(0, 8000),
     });
     return padEmbedding(res.data[0].embedding);
-  } catch {
-    return padEmbedding(pseudoEmbed(text));
+  } catch (error) {
+    console.error("embedText failed", error);
+    return null;
   }
 }
 
-export async function embedProfile(profile: Profile): Promise<number[]> {
-  const text = buildProfileEmbeddingText(profile);
-  return (await embedText(text)) ?? padEmbedding(pseudoEmbed(text));
-}
-
-/** Deterministic fallback when OpenAI key is absent (demo/dev) */
-function pseudoEmbed(text: string, dims = 64): number[] {
+/** Deterministic fallback for local demo when OpenAI is not configured. */
+function pseudoEmbed(text: string, dims = EMBEDDING_DIMENSIONS): number[] {
   const vec = new Array(dims).fill(0);
   const normalized = text.toLowerCase();
   for (let i = 0; i < normalized.length; i++) {
@@ -76,4 +80,12 @@ function pseudoEmbed(text: string, dims = 64): number[] {
   }
   const mag = Math.sqrt(vec.reduce((s, v) => s + v * v, 0)) || 1;
   return vec.map((v) => v / mag);
+}
+
+export async function embedProfile(profile: Profile): Promise<number[]> {
+  const text = buildProfileEmbeddingText(profile);
+  const real = await embedText(text);
+  if (real) return real;
+  // Demo/dev only: keep profiles searchable via suggestions when OpenAI is unset
+  return padEmbedding(pseudoEmbed(text));
 }

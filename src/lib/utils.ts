@@ -37,22 +37,33 @@ export function haversineKm(
 }
 
 export function profileCompletionScore(profile: {
-  full_name?: string;
-  programs?: unknown[];
-  divisions?: unknown[];
+  full_name?: string | null;
+  cohort_year?: number | null;
+  programs?: unknown[] | null;
+  divisions?: unknown[] | null;
   current_title?: string | null;
+  current_company?: string | null;
+  linkedin_url?: string | null;
   bio?: string | null;
+  industries?: unknown[] | null;
+  startups?: unknown[] | null;
+  city?: string | null;
   lat?: number | null;
-  photo_url?: string | null;
+  phone?: string | null;
 }): number {
   const fields = [
-    Boolean(profile.full_name),
+    Boolean(profile.full_name?.trim()),
+    profile.cohort_year != null,
     (profile.programs?.length ?? 0) > 0,
     (profile.divisions?.length ?? 0) > 0,
-    Boolean(profile.current_title),
-    Boolean(profile.bio),
-    profile.lat != null,
-    Boolean(profile.photo_url),
+    Boolean(profile.current_title?.trim()),
+    Boolean(profile.current_company?.trim()),
+    Boolean(profile.linkedin_url?.trim()),
+    Boolean(profile.bio?.trim()),
+    (profile.industries?.length ?? 0) > 0,
+    (profile.startups?.length ?? 0) > 0,
+    profile.lat != null || Boolean(profile.city?.trim()),
+    Boolean(profile.phone?.trim()),
   ];
   return Math.round((fields.filter(Boolean).length / fields.length) * 100);
 }
