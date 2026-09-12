@@ -21,7 +21,7 @@ export function ProfileCard({
 
   return (
     <Link href={`/members/${profile.id}`} className={cn("group flex h-full w-full", className)}>
-      <div className="glass-panel glass-panel-hover flex h-full w-full flex-col border border-white/20 px-5 py-5">
+      <div className="glass-panel glass-panel-hover flex h-full w-full flex-col border border-white/25 px-5 py-5">
         <div className="flex items-start gap-3">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 text-xs font-medium text-tl-gold">
             {initials || "?"}

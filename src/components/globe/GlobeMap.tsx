@@ -19,23 +19,42 @@ function createStarMarker(pin: GlobePin, onClick: (pin: GlobePin) => void) {
   el.title = pin.full_name;
   el.setAttribute("aria-label", pin.full_name);
   el.innerHTML = `
-    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        fill="#e23a1f"
-        stroke="#c9a84c"
-        stroke-width="0.8"
-        d="M12 2.5l2.6 6.4 6.9.6-5.2 4.5 1.6 6.7L12 17.2l-5.9 3.5 1.6-6.7L2.5 9.5l6.9-.6L12 2.5z"
-      />
-    </svg>
+    <span style="position:relative;display:block;width:34px;height:34px;">
+      <span style="
+        position:absolute;inset:4px;border-radius:999px;
+        background:radial-gradient(circle, rgba(226,58,31,0.55) 0%, rgba(226,58,31,0) 70%);
+        animation:tl-star-pulse 1.8s ease-in-out infinite;
+      "></span>
+      <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="position:relative;z-index:1;">
+        <path
+          fill="#ff4a2a"
+          stroke="#ffd56a"
+          stroke-width="1.4"
+          d="M12 2.2l2.85 6.55 7.1.65-5.35 4.7 1.7 6.9L12 17.5l-6.3 3.5 1.7-6.9L2.05 9.4l7.1-.65L12 2.2z"
+        />
+      </svg>
+    </span>
   `;
+  if (!document.getElementById("tl-star-pulse-style")) {
+    const style = document.createElement("style");
+    style.id = "tl-star-pulse-style";
+    style.textContent = `
+      @keyframes tl-star-pulse {
+        0%, 100% { transform: scale(0.85); opacity: 0.55; }
+        50% { transform: scale(1.25); opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
+  }
   el.style.cssText = [
     "background:transparent",
     "border:0",
     "padding:0",
     "cursor:pointer",
     "transform:translate(-50%,-50%)",
-    "filter:drop-shadow(0 0 4px rgba(226,58,31,0.75))",
+    "filter:drop-shadow(0 0 10px rgba(255,74,42,0.95)) drop-shadow(0 0 18px rgba(255,213,106,0.55))",
     "line-height:0",
+    "z-index:2",
   ].join(";");
   el.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -125,7 +144,7 @@ export function GlobeMap({ pins, onRefresh }: GlobeMapProps) {
         htmlElementsData={pins}
         htmlLat="lat"
         htmlLng="lng"
-        htmlAltitude={0.012}
+        htmlAltitude={0.02}
         htmlElement={(d: object) => createStarMarker(d as GlobePin, (pin) => clickHandlerRef.current(pin))}
         atmosphereColor="#c9a84c"
         atmosphereAltitude={0.15}

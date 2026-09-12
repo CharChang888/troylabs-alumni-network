@@ -75,23 +75,43 @@ export default function ProfilePage() {
 
   const active = draft ?? profile;
   const completion = profileCompletionScore(active);
+  const completionFields = [
+    Boolean(active.full_name?.trim()),
+    active.cohort_year != null,
+    (active.programs?.length ?? 0) > 0,
+    (active.divisions?.length ?? 0) > 0,
+    Boolean(active.current_title?.trim()),
+    Boolean(active.current_company?.trim()),
+    Boolean(active.linkedin_url?.trim()),
+    Boolean(active.bio?.trim()),
+    (active.industries?.length ?? 0) > 0,
+    (active.startups?.length ?? 0) > 0,
+    active.lat != null || Boolean(active.city?.trim()),
+    Boolean(active.phone?.trim()),
+  ];
+  const filledCount = completionFields.filter(Boolean).length;
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-[0.18em] text-white">YOUR PROFILE</h1>
         <p className="mt-2 text-white/50">{profile.email}</p>
-        <div className="mt-3">
-          <div className="flex items-center justify-between text-[11px] uppercase tracking-nav text-white/50">
+        <div className="mt-4 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3">
+          <div className="flex items-center justify-between gap-3 text-[11px] uppercase tracking-nav text-white/55">
             <span>Profile completion</span>
-            <span>{completion}%</span>
+            <span className="text-tl-gold">
+              {completion}% · {filledCount}/{completionFields.length} fields
+            </span>
           </div>
-          <div className="mt-2 h-[1px] overflow-hidden bg-white/15">
+          <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-white/10">
             <div
-              className="h-full bg-gradient-to-r from-tl-accent to-tl-gold transition-all duration-300"
-              style={{ width: `${completion}%` }}
+              className="h-full rounded-full bg-gradient-to-r from-tl-accent to-tl-gold transition-all duration-300"
+              style={{ width: `${Math.max(completion, completion > 0 ? 4 : 0)}%` }}
             />
           </div>
+          <p className="mt-2 text-xs text-white/40">
+            Updates live as you fill fields — save when you&apos;re done.
+          </p>
         </div>
       </div>
       <ProfileForm profile={profile} onSave={handleSave} onDraftChange={setDraft} />
