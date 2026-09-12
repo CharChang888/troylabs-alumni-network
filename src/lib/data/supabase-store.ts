@@ -188,22 +188,56 @@ export async function ensureSeedData(): Promise<void> {
 
 export async function sendMagicLink(
   email: string,
-  emailRedirectTo: string
+  emailRedirectTo: string,
+  options?: { createUser?: boolean }
 ): Promise<{ magicLink: true } | { error: string }> {
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithOtp({
     email,
-    options: { emailRedirectTo, shouldCreateUser: true },
+    options: {
+      emailRedirectTo,
+      shouldCreateUser: options?.createUser ?? true,
+    },
   });
   if (error) return { error: error.message };
   return { magicLink: true };
+}
+
+export async function loginWithPassword(
+  email: string,
+  password: string
+): Promise<{ user: User; profile: Profile } | { error: string }> {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error || !data.user) {
+    return { error: error?.message ?? "Invalid email or password" };
+  }
+  const user = await ensureUserRecord(data.user);
+  const profile = await getProfileByUserId(user.id);
+  if (!profile) return { error: "Profile not found" };
+  return { user, profile };
+}
+
+export async function setAccountPassword(
+  password: string
+): Promise<{ ok: true } | { error: string }> {
+  if (password.length < 8) {
+    return { error: "Password must be at least 8 characters" };
+  }
+  const supabase = await createClient();
+  const { error } = await supabase.auth.updateUser({
+    password,
+    data: { password_set: true },
+  });
+  if (error) return { error: error.message };
+  return { ok: true };
 }
 
 export async function loginWithEmail(
   email: string
 ): Promise<{ user: User; profile: Profile } | { error: string }> {
   void email;
-  return { error: "Magic link required" };
+  return { error: "Use email + password to log in, or sign up with a magic link" };
 }
 
 export async function resolveSessionUser(token?: string | null): Promise<User | null> {
@@ -403,6 +437,18 @@ export async function removeUserByEmail(email: string): Promise<boolean> {
     console.error("removeUserByEmail", userError.message);
     return false;
   }
+
+  try {
+    const { createAdminClient, hasServiceRole } = await import("@/lib/supabase/admin");
+    if (hasServiceRole()) {
+      const admin = createAdminClient();
+      const { error: authError } = await admin.auth.admin.deleteUser(user.id);
+      if (authError) console.error("auth.admin.deleteUser", authError.message);
+    }
+  } catch (e) {
+    console.error("auth delete skipped", e);
+  }
+
   return true;
 }
 

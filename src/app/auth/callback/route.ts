@@ -24,7 +24,18 @@ export async function GET(request: Request) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  const profile = user ? await getProfileByUserId(user.id) : null;
+  if (!user) {
+    return NextResponse.redirect(`${origin}/login?error=auth`);
+  }
+
+  const passwordSet = Boolean(user.user_metadata?.password_set);
+  if (!passwordSet) {
+    const setup = new URL(`${origin}/set-password`);
+    setup.searchParams.set("next", next);
+    return NextResponse.redirect(setup.toString());
+  }
+
+  const profile = await getProfileByUserId(user.id);
   const destination = profile?.profile_complete ? next : "/profile";
   return NextResponse.redirect(`${origin}${destination}`);
 }

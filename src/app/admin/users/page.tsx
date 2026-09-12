@@ -80,7 +80,15 @@ export default function AdminUsersPage() {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-2xl font-bold text-white">User management</h1>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <h1 className="text-2xl font-bold text-white">User management</h1>
+        <a
+          href="/api/admin/export"
+          className="rounded-lg border border-white/20 px-4 py-2 text-[11px] uppercase tracking-nav text-white/70 transition hover:border-white/40 hover:text-white"
+        >
+          Export emails &amp; phones (CSV)
+        </a>
+      </div>
 
       <Card>
         <CardContent className="space-y-4 p-4">

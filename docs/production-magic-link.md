@@ -34,4 +34,16 @@ Open: `https://troylabs-alumni-network.vercel.app/api/auth/login`
 
 Expected: `{"mode":"magic"}`
 
-Then login should say “Email me a link”.
+## 5. Email + password login (after magic-link signup)
+In Supabase → Authentication → Providers → Email:
+- Enable Email provider
+- Confirm **Email password sign-ins** is allowed (default on most projects)
+
+Flow in the app:
+1. **Sign up** → magic link email
+2. Open link → **Create your password**
+3. Later visits → **Log in** with email + password (no magic link)
+
+Forgot password: on Log in, use “Email a magic link”, then set a new password on `/set-password`.
+
+Then login should show **Log in** / **Sign up** tabs.

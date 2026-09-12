@@ -13,11 +13,29 @@ export async function ensureSeedData() {
   return store().ensureSeedData();
 }
 
-export async function sendMagicLink(email: string, emailRedirectTo: string) {
+export async function sendMagicLink(
+  email: string,
+  emailRedirectTo: string,
+  options?: { createUser?: boolean }
+) {
   if (!isSupabaseConfigured()) {
     return { error: "Supabase is not configured" };
   }
-  return remote.sendMagicLink(email, emailRedirectTo);
+  return remote.sendMagicLink(email, emailRedirectTo, options);
+}
+
+export async function loginWithPassword(email: string, password: string) {
+  if (!isSupabaseConfigured()) {
+    return { error: "Password login requires Supabase" };
+  }
+  return remote.loginWithPassword(email, password);
+}
+
+export async function setAccountPassword(password: string) {
+  if (!isSupabaseConfigured()) {
+    return { error: "Password setup requires Supabase" };
+  }
+  return remote.setAccountPassword(password);
 }
 
 export async function loginWithEmail(email: string) {
