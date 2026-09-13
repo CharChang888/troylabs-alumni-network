@@ -44,6 +44,12 @@ Flow in the app:
 2. Open link → **Create your password**
 3. Later visits → **Log in** with email + password (no magic link)
 
-Forgot password: on Log in, use “Email a magic link”, then set a new password on `/set-password`.
+## Admin access
+Admin is **not** automatic for `@usc.edu`. Only emails in `config/allowed-domains.json` → `admin_emails` (and the Supabase `admin_emails` table) get the Admin nav link.
 
-Then login should show **Log in** / **Sign up** tabs.
+Current allowlist:
+- `ctchang@usc.edu`
+- `ctnchang@icloud.com`
+- `bryanram2024@gmail.com`
+
+After deploy, sign out/in once so role sync can promote allowlisted accounts. Or run `supabase/migrations/003_sync_admin_emails.sql` in the Supabase SQL editor.

@@ -119,17 +119,63 @@ function mapDomain(row: Record<string, unknown>): AllowedDomain {
   };
 }
 
-async function ensureUserRecord(authUser: { id: string; email?: string | null; created_at?: string }) {
+async function ensureUserRecord(authUser: {
+  id: string;
+  email?: string | null;
+  created_at?: string;
+}): Promise<User> {
   const email = authUser.email ?? "";
   const db = await getDb();
+
+  const resolveRole = async (): Promise<UserRole> => {
+    if (!email) return "member";
+    if (isAdminEmail(email)) {
+      if (hasServiceRole()) {
+        const admin = createAdminClient();
+        await admin.from("admin_emails").upsert({ email: email.toLowerCase() });
+      }
+      return "admin";
+    }
+    if (email.toLowerCase().includes("angelfund")) return "stakeholder";
+
+    if (hasServiceRole()) {
+      const admin = createAdminClient();
+      const { data: adminRow } = await admin
+        .from("admin_emails")
+        .select("email")
+        .ilike("email", email)
+        .maybeSingle();
+      if (adminRow) return "admin";
+      const { data: invite } = await admin
+        .from("alumni_invites")
+        .select("role")
+        .ilike("email", email)
+        .maybeSingle();
+      if (invite?.role) return invite.role as UserRole;
+    }
+
+    return "member";
+  };
+
+  const desiredRole = await resolveRole();
   const { data: existing } = await db.from("users").select("*").eq("id", authUser.id).maybeSingle();
-  if (existing) return mapUser(existing as Record<string, unknown>);
+
+  if (existing) {
+    const current = mapUser(existing as Record<string, unknown>);
+    if (desiredRole === "admin" && current.role !== "admin" && hasServiceRole()) {
+      const admin = createAdminClient();
+      await admin.from("admin_emails").upsert({ email: email.toLowerCase() });
+      await admin.from("users").update({ role: "admin" }).eq("id", authUser.id);
+      return { ...current, role: "admin" as UserRole };
+    }
+    return current;
+  }
 
   if (!hasServiceRole() || !email) {
     return {
       id: authUser.id,
       email,
-      role: (isAdminEmail(email) ? "admin" : email.includes("angelfund") ? "stakeholder" : "member") as UserRole,
+      role: desiredRole,
       is_active: true,
       created_at: authUser.created_at ?? new Date().toISOString(),
     };
@@ -137,15 +183,14 @@ async function ensureUserRecord(authUser: { id: string; email?: string | null; c
 
   const admin = createAdminClient();
   const { data: invite } = await admin.from("alumni_invites").select("*").ilike("email", email).maybeSingle();
-  const { data: adminRow } = await admin.from("admin_emails").select("email").ilike("email", email).maybeSingle();
-  const role: UserRole = adminRow
-    ? "admin"
-    : ((invite?.role as UserRole | undefined) ?? (email.includes("angelfund") ? "stakeholder" : isAdminEmail(email) ? "admin" : "member"));
+  if (desiredRole === "admin") {
+    await admin.from("admin_emails").upsert({ email: email.toLowerCase() });
+  }
 
   await admin.from("users").upsert({
     id: authUser.id,
     email,
-    role,
+    role: desiredRole,
     is_active: true,
   });
 
@@ -174,13 +219,17 @@ async function ensureUserRecord(authUser: { id: string; email?: string | null; c
       photo_url: invite?.photo_url ?? null,
       sms_opt_in: invite?.sms_opt_in ?? false,
       stakeholder_type:
-        role === "stakeholder" ? (invite?.stakeholder_type ?? "ANGEL_INVESTOR") : (invite?.stakeholder_type ?? null),
+        desiredRole === "stakeholder"
+          ? (invite?.stakeholder_type ?? "ANGEL_INVESTOR")
+          : (invite?.stakeholder_type ?? null),
     });
   }
 
   const { data: user } = await admin.from("users").select("*").eq("id", authUser.id).single();
-  return mapUser((user ?? { id: authUser.id, email, role, is_active: true }) as Record<string, unknown>);
+  return mapUser((user ?? { id: authUser.id, email, role: desiredRole, is_active: true }) as Record<string, unknown>);
 }
+
+export { ensureUserRecord };
 
 export async function ensureSeedData(): Promise<void> {
   /* Production data lives in Postgres. */

@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { AUTH_NEXT_COOKIE, safeNextPath } from "@/lib/auth/constants";
 import { getProfileByUserId } from "@/lib/data";
+import { ensureUserRecord } from "@/lib/data/supabase-store";
+import { isSupabaseConfigured } from "@/lib/env";
 
 function readCookie(request: Request, name: string): string | null {
   const raw = request.headers.get("cookie");
@@ -14,12 +16,29 @@ function readCookie(request: Request, name: string): string | null {
   return null;
 }
 
+function parseRequestCookies(request: Request) {
+  const raw = request.headers.get("cookie") ?? "";
+  return raw
+    .split(";")
+    .map((c) => c.trim())
+    .filter(Boolean)
+    .map((c) => {
+      const i = c.indexOf("=");
+      return {
+        name: i === -1 ? c : c.slice(0, i),
+        value: i === -1 ? "" : c.slice(i + 1),
+      };
+    });
+}
+
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-  const next = safeNextPath(readCookie(request, AUTH_NEXT_COOKIE));
+  const tokenHash = searchParams.get("token_hash");
+  const type = searchParams.get("type");
+  const next = safeNextPath(readCookie(request, AUTH_NEXT_COOKIE) ?? searchParams.get("next"));
 
-  if (!code) {
+  if (!code && !(tokenHash && type)) {
     return NextResponse.redirect(`${origin}/login?error=auth`);
   }
 
@@ -31,18 +50,7 @@ export async function GET(request: Request) {
     {
       cookies: {
         getAll() {
-          const raw = request.headers.get("cookie") ?? "";
-          return raw
-            .split(";")
-            .map((c) => c.trim())
-            .filter(Boolean)
-            .map((c) => {
-              const i = c.indexOf("=");
-              return {
-                name: i === -1 ? c : c.slice(0, i),
-                value: i === -1 ? "" : c.slice(i + 1),
-              };
-            });
+          return parseRequestCookies(request);
         },
         setAll(cookiesToSet) {
           pendingCookies.push(...cookiesToSet);
@@ -51,15 +59,41 @@ export async function GET(request: Request) {
     }
   );
 
-  const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-  if (error || !data.user) {
+  let user = null as Awaited<ReturnType<typeof supabase.auth.getUser>>["data"]["user"];
+
+  if (code) {
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+    if (error || !data.user) {
+      return NextResponse.redirect(`${origin}/login?error=auth`);
+    }
+    user = data.user;
+  } else if (tokenHash && type) {
+    const { data, error } = await supabase.auth.verifyOtp({
+      token_hash: tokenHash,
+      type: type as "email" | "magiclink" | "signup" | "invite" | "recovery" | "email_change",
+    });
+    if (error || !data.user) {
+      return NextResponse.redirect(`${origin}/login?error=auth`);
+    }
+    user = data.user;
+  }
+
+  if (!user) {
     return NextResponse.redirect(`${origin}/login?error=auth`);
   }
 
-  const passwordSet = Boolean(data.user.user_metadata?.password_set);
+  if (isSupabaseConfigured()) {
+    try {
+      await ensureUserRecord(user);
+    } catch (e) {
+      console.error("ensureUserRecord after magic link", e);
+    }
+  }
+
+  const passwordSet = Boolean(user.user_metadata?.password_set);
   let destination = `/set-password?next=${encodeURIComponent(next)}`;
   if (passwordSet) {
-    const profile = await getProfileByUserId(data.user.id);
+    const profile = await getProfileByUserId(user.id);
     destination = profile?.profile_complete ? next : "/profile";
   }
 
