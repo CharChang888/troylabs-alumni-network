@@ -11,6 +11,8 @@ import { requireAdmin } from "@/lib/auth/current-user";
 
 export async function GET() {
   await ensureSeedData();
+  const admin = await requireAdmin();
+  if (!admin) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   const analytics = await getAnalytics();
   return NextResponse.json({ analytics });
 }

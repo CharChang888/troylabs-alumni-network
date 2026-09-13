@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { SESSION_COOKIE } from "@/lib/auth/session";
 import { ensureSeedData, resolveSessionUser } from "@/lib/data";
+import { userIsAdmin } from "@/lib/auth/current-user";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   await ensureSeedData();
@@ -13,7 +14,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (!currentUser) {
     redirect("/login?redirect=/admin");
   }
-  if (currentUser.role !== "admin") {
+  if (!userIsAdmin(currentUser)) {
     redirect("/home");
   }
 

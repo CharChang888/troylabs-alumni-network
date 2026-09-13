@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { SESSION_COOKIE } from "@/lib/auth/constants";
+import { isAdminEmail } from "@/lib/auth/domain-check";
 import { resolveSessionUser } from "@/lib/data";
 import type { User } from "@/types";
 
@@ -9,8 +10,13 @@ export async function getCurrentUser(): Promise<User | null> {
   return resolveSessionUser(token);
 }
 
+export function userIsAdmin(user: User | null | undefined): boolean {
+  if (!user) return false;
+  return user.role === "admin" || isAdminEmail(user.email);
+}
+
 export async function requireAdmin(): Promise<User | null> {
   const user = await getCurrentUser();
-  if (user?.role !== "admin") return null;
-  return user;
+  if (!userIsAdmin(user)) return null;
+  return user ? { ...user, role: "admin" } : null;
 }

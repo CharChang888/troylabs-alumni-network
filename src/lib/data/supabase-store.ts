@@ -162,10 +162,21 @@ async function ensureUserRecord(authUser: {
 
   if (existing) {
     const current = mapUser(existing as Record<string, unknown>);
-    if (desiredRole === "admin" && current.role !== "admin" && hasServiceRole()) {
+    if (desiredRole === "admin" && current.role !== "admin") {
+      if (!hasServiceRole()) {
+        console.error(
+          "[ensureUserRecord] Cannot persist admin role without SUPABASE_SERVICE_ROLE_KEY for",
+          email
+        );
+        // Still treat as admin in-app so Navbar /admin work; fix env + SQL ASAP.
+        return { ...current, role: "admin" as UserRole };
+      }
       const admin = createAdminClient();
       await admin.from("admin_emails").upsert({ email: email.toLowerCase() });
-      await admin.from("users").update({ role: "admin" }).eq("id", authUser.id);
+      const { error } = await admin.from("users").update({ role: "admin" }).eq("id", authUser.id);
+      if (error) {
+        console.error("[ensureUserRecord] admin promotion failed", error.message);
+      }
       return { ...current, role: "admin" as UserRole };
     }
     return current;
